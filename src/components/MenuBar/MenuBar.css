@@ -1,0 +1,33 @@
+.nav {
+    display: flex;
+    margin: 80px 0 24px;
+}
+
+.nav-info {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.left-nav {
+    width: 32%;
+    background: #d73831;
+}
+
+.center-nav {
+    width: 36%;
+    background: #dc633a;
+}
+
+.right-nav {
+    width: 32%;
+    background: #ac2f33;
+}
+
+.nav-info a {
+    display: inline-block;
+    padding: 12px 0;
+    color: #fff;
+}

@@ -1,0 +1,33 @@
+#header .header-action {
+    display: flex;
+}
+
+.item {
+    color: #373737ef;
+    font-size: 16px;
+    margin-right: 14px;
+}
+
+.item:last-child {
+    position: relative;
+    margin-right: 30px;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+.item .number-cart {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-size: 12px;
+    right: -17px;
+    top: -10px;
+    color: #fff;
+    background: #221f20;
+}
