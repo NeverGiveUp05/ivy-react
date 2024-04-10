@@ -1,0 +1,15 @@
+#product {
+    margin-bottom: 40px;
+}
+
+#product .title-section {
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 32px;
+    font-family: "Montserrat";
+    color: #221f20;
+}

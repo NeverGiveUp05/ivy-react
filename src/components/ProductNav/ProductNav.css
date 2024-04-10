@@ -1,0 +1,23 @@
+.wrap ul {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.wrap ul li {
+    color: #6c6d70;
+    font-size: 20px;
+    line-height: 30px;
+    margin-right: 56px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.wrap ul li:last-child {
+    margin-right: 0px;
+}
+
+.wrap ul li.active {
+    color: #221f20;
+    border-bottom: 2px solid #221f20;
+}
