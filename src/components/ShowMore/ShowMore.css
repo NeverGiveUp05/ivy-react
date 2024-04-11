@@ -1,0 +1,40 @@
+.show-all {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.show-all .show-text {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #221f20;
+    border-radius: 24px 0px;
+    padding: 13px 24px;
+    line-height: 20px;
+    background-color: #fff;
+    color: #221f20;
+    transition: all 0.3s ease-in-out;
+    min-width: 134.45px;
+}
+
+.show-all .show-text::after {
+    content: "";
+    position: absolute;
+    border: 1px solid #d1d2d4;
+    border-radius: 24px 0px;
+    bottom: 0;
+    right: -5px;
+    width: 100%;
+    height: 93%;
+    z-index: -1;
+}
+
+.show-all .show-text:hover {
+    cursor: pointer;
+    background: #221f20;
+    color: #fff;
+    border: 1px solid #221f20;
+}
+
+.show-all .show-text:hover::after {
+    animation: undo linear 0.3s forwards;
+}

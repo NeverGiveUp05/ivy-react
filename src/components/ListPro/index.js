@@ -1,75 +1,43 @@
 import "./ListPro.css";
 import { getProduct } from "../../services/ProductService";
 import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import Pro from "../Pro";
+import { useContext } from "react";
+import { DataContext } from "../Content";
 
 function ProductCarts() {
     const [products, setProducts] = useState([]);
+    const { isActive, quantityShow, setIsShowFull } = useContext(DataContext);
 
     useEffect(() => {
         getData();
     }, []);
 
-    const changeHeart = () => {};
-
-    const addPro = () => {};
+    useEffect(() => {
+        if (quantityShow === products.length) {
+            setIsShowFull(true);
+        } else {
+            setIsShowFull(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [quantityShow]);
 
     const getData = async () => {
         const data = (await getProduct()).data;
+
         setProducts(data);
     };
+
+    const listProduct = products.filter((product) => {
+        return Number(product.id) <= quantityShow;
+    });
 
     return (
         <div id="product-show">
             <div className="content">
-                {products.map((item) => {
-                    return (
-                        <div key={item.id} className="box">
-                            <div className="cart">NEW</div>
-                            <img className="cart-img" src={item.image} alt="" />
-                            <img className="pseudo-img" src={item.pseudoImage} alt="" />
-
-                            <div className="detail">
-                                <div className="detail-head">
-                                    <div className="list-color">
-                                        <div className="color color-c5a782"></div>
-                                        <div className="color color-a3784e"></div>
-                                        <div className="color color-ec6795 checked"></div>
-                                    </div>
-                                    <div className="heart">
-                                        <FontAwesomeIcon
-                                            className="fa-heart"
-                                            icon={faHeart}
-                                            onClick={() => changeHeart()}
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="detail-desp">{item.name}</div>
-
-                                <div className="detail-foot">
-                                    <div className="price">
-                                        <span>{item.price}$</span> <del>{item.delPrice}$</del>
-                                    </div>
-                                    <div
-                                        className="add-to-cart"
-                                        onClick={() =>
-                                            addPro({
-                                                name: "Lantana Dress - Đầm Xòe Phối Đai",
-                                                price: 2000000,
-                                                img: "./images/image1.1.jfif",
-                                            })
-                                        }
-                                    >
-                                        <FontAwesomeIcon className="fa-cart-shopping" icon={faCartShopping} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    );
-                })}
+                {listProduct.map((product) => (
+                    <Pro key={product.id} item={product} index={isActive} />
+                ))}
             </div>
         </div>
     );

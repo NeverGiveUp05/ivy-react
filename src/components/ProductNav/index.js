@@ -1,12 +1,25 @@
 import "./ProductNav.css";
+import { useContext } from "react";
+import { DataContext } from "../Content";
 
 function ProductNav() {
+    const { isActive, setIsActive } = useContext(DataContext);
+    const arrTitle = ["IVY moda", "IVY men", "IVY kids"];
+
     return (
         <div className="wrap">
             <ul>
-                <li className="tab active">IVY moda</li>
-                <li className="tab">IVY men</li>
-                <li className="tab">IVY kids</li>
+                {arrTitle.map((title, index) => {
+                    return (
+                        <li
+                            key={index}
+                            className={"tab ".concat(isActive === index ? "active" : "")}
+                            onClick={() => setIsActive(index)}
+                        >
+                            {title}
+                        </li>
+                    );
+                })}
             </ul>
         </div>
     );
