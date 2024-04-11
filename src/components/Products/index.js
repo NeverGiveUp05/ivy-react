@@ -1,3 +1,4 @@
+import ListPro from "../ListPro";
 import ProductNav from "../ProductNav";
 import "./Products.css";
 
@@ -6,6 +7,7 @@ function Products() {
         <div id="product">
             <div className="title-section">NEW ARRIVAL</div>
             <ProductNav />
+            <ListPro />
         </div>
     );
 }
