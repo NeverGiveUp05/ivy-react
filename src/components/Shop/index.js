@@ -14,7 +14,7 @@ function Shop(props, ref) {
     };
 
     useEffect(() => {
-        console.log(arrShop);
+        // console.log(arrShop);
     }, [arrShop]);
 
     return (

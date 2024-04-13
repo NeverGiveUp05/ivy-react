@@ -6,7 +6,7 @@ import { updateProduct } from "../../services/ProductService";
 import "./Pro.css";
 import { arrShop } from "../Shop";
 
-function Pro({ item, index }) {
+function Pro({ item, index, updateProChangeHeart }) {
     const heart = useRef();
     const heartRed = useRef();
 
@@ -45,11 +45,9 @@ function Pro({ item, index }) {
     }
 
     const changeHeart = async (id, data) => {
-        await updateProduct(id, { ...data, favorite: !data.favorite }).data;
+        const resutl = await updateProduct(id, { ...data, favorite: !data.favorite });
 
-        heart.current.classList.toggle("dis-none");
-
-        heartRed.current.classList.toggle("dis-none");
+        updateProChangeHeart(Number(resutl.data.id - 1), resutl.data);
     };
 
     const addPro = (data) => {

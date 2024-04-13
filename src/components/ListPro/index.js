@@ -8,13 +8,11 @@ import { DataContext } from "../Content";
 function ProductCarts() {
     const [products, setProducts] = useState([]);
     const { isActive, quantityShow, setIsShowFull } = useContext(DataContext);
-    const [changeHeart, setChangeHeart] = useState(false);
 
     useEffect(() => {
         getData();
-        setChangeHeart(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isActive, changeHeart]);
+    }, [isActive]);
 
     useEffect(() => {
         setIsShowFull(quantityShow === result.length);
@@ -28,6 +26,11 @@ function ProductCarts() {
         setProducts(data);
     };
 
+    const updateProChangeHeart = (id, data) => {
+        const newProducts = products.toSpliced(id, 1, data);
+        setProducts(newProducts);
+    };
+
     const result = products.filter((pro) => pro.id > isActive * 10 && pro.id <= (isActive + 1) * 10);
 
     const listProduct = result.filter((product, index) => {
@@ -38,7 +41,7 @@ function ProductCarts() {
         <div id="product-show">
             <div className="content">
                 {listProduct.map((product) => (
-                    <Pro key={product.id} item={product} index={isActive} />
+                    <Pro key={product.id} item={product} index={isActive} updateProChangeHeart={updateProChangeHeart} />
                 ))}
             </div>
         </div>
