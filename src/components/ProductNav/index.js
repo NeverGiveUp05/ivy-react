@@ -3,8 +3,13 @@ import { useContext } from "react";
 import { DataContext } from "../Content";
 
 function ProductNav() {
-    const { isActive, setIsActive } = useContext(DataContext);
+    const { isActive, setIsActive, setQuantityShow } = useContext(DataContext);
     const arrTitle = ["IVY moda", "IVY men", "IVY kids"];
+
+    const handleChangeTag = (index) => {
+        setIsActive(index);
+        setQuantityShow(5);
+    };
 
     return (
         <div className="wrap">
@@ -14,7 +19,7 @@ function ProductNav() {
                         <li
                             key={index}
                             className={"tab ".concat(isActive === index ? "active" : "")}
-                            onClick={() => setIsActive(index)}
+                            onClick={() => handleChangeTag(index)}
                         >
                             {title}
                         </li>

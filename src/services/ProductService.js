@@ -1,7 +1,11 @@
-import axios from "./customize-axios";
+import instance from "./customize-axios";
 
 const getProduct = () => {
-    return axios.get(`/product`);
+    return instance.get(`/product`);
 };
 
-export { getProduct };
+const updateProduct = (id, data) => {
+    return instance.put(`/product/${id}`, data);
+};
+
+export { getProduct, updateProduct };

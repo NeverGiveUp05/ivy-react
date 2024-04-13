@@ -1,0 +1,226 @@
+#bottom {
+    padding: 60px 0 0;
+    border-top: 1px solid #d1d2d4;
+    border-bottom: 1px solid #d1d2d4;
+}
+
+#bottom .container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 32px;
+}
+
+#bottom .left-bottom {
+    width: 22.05%;
+}
+
+#bottom .left-bottom .top-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#bottom .left-bottom .top-left img {
+    width: 100%;
+}
+
+#bottom .left-bottom .top-left div:nth-child(2) img {
+    max-height: 30px;
+}
+
+#bottom .left-bottom .left-info p {
+    margin-bottom: 12px;
+    color: #3e3e3f;
+    font-size: 14px;
+}
+
+#bottom .left-bottom .left-info strong {
+    font-weight: 600;
+}
+
+#bottom .left-bottom .list-social {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+#bottom li {
+    font-weight: 400;
+    margin-right: 0;
+    padding: 0;
+}
+
+#bottom .left-bottom .list-social li {
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+#bottom .left-bottom .list-social li:hover {
+    cursor: pointer;
+}
+
+#bottom .left-bottom .list-social li:last-child {
+    margin-right: 0px;
+}
+
+#bottom .left-bottom .hotline {
+    display: inline-block;
+    background: #221f20;
+    border-radius: 16px 0px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f7f8f9;
+    padding: 12px 24px;
+    font-family: "Roboto", sans-serif;
+}
+
+#bottom .left-bottom .hotline:hover {
+    cursor: pointer;
+}
+
+#bottom .center-bottom {
+    width: 45.2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#bottom .center-bottom .title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #221f20;
+    margin-bottom: 20px;
+}
+
+#bottom .center-bottom li {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+#bottom .center-bottom li a {
+    color: #57585a;
+}
+
+#bottom .center-bottom li a:hover {
+    color: #221f20;
+}
+
+#bottom .right-bottom {
+    width: 23.75%;
+}
+
+#bottom .right-bottom .register-form {
+    position: relative;
+    z-index: 0;
+    background: #ffffff;
+    border: 6px solid #e7e8e9;
+    border-radius: 56px 0px;
+    padding: 30px 22px;
+    margin-bottom: 32px;
+}
+
+#bottom .right-bottom .register-form .register-title {
+    max-width: 85%;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #221f20;
+}
+
+#form-subscribe {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form-subscribe .email-subscribe {
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid #bcbdc0;
+    font-size: 14px;
+    line-height: 24px;
+    color: #221f20e3;
+    padding: 0 12px 10px 0;
+    width: 63%;
+}
+
+#form-subscribe .btn-submit {
+    position: relative;
+    height: 45.6px;
+    width: 122.09px;
+    background-color: #fff;
+    border: 1px solid #221f20;
+    border-radius: 24px 0px;
+    margin-right: 0;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    color: #221f20;
+    transition: all 0.3s ease-in-out;
+}
+
+#form-subscribe .btn-submit:hover {
+    background: #221f20;
+    color: #fff;
+}
+
+#form-subscribe .btn-submit:hover::before {
+    animation: undo linear 0.3s forwards;
+}
+
+#form-subscribe .btn-submit::before {
+    content: "";
+    position: absolute;
+    border: 1px solid #d1d2d4;
+    box-sizing: border-box;
+    border-radius: 24px 0px;
+    padding: 13px 24px;
+    bottom: 0;
+    right: -5px;
+    width: 100%;
+    height: 93%;
+    z-index: -1;
+}
+
+@keyframes undo {
+    to {
+        right: 0;
+        height: 100%;
+    }
+}
+
+#bottom .app .app-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    color: #221f20;
+    margin-bottom: 20px;
+}
+
+#bottom .app img:hover {
+    cursor: pointer;
+}
+
+#footer {
+    padding: 24px 0;
+}
+
+#footer .copy-right {
+    font-size: 16px;
+    line-height: 20px;
+    color: #57585a;
+    text-align: center;
+}
+
+.height-30 {
+    height: 30px;
+}
+
+.height-27 {
+    height: 27px;
+}

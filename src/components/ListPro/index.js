@@ -8,17 +8,17 @@ import { DataContext } from "../Content";
 function ProductCarts() {
     const [products, setProducts] = useState([]);
     const { isActive, quantityShow, setIsShowFull } = useContext(DataContext);
+    const [changeHeart, setChangeHeart] = useState(false);
 
     useEffect(() => {
         getData();
-    }, []);
+        setChangeHeart(false);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isActive, changeHeart]);
 
     useEffect(() => {
-        if (quantityShow === products.length) {
-            setIsShowFull(true);
-        } else {
-            setIsShowFull(false);
-        }
+        setIsShowFull(quantityShow === result.length);
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantityShow]);
 
@@ -28,8 +28,10 @@ function ProductCarts() {
         setProducts(data);
     };
 
-    const listProduct = products.filter((product) => {
-        return Number(product.id) <= quantityShow;
+    const result = products.filter((pro) => pro.id > isActive * 10 && pro.id <= (isActive + 1) * 10);
+
+    const listProduct = result.filter((product, index) => {
+        return index <= quantityShow - 1;
     });
 
     return (

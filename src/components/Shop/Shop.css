@@ -1,0 +1,232 @@
+.shopping {
+    height: 100vh;
+    width: 455px;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    background: #fff;
+    z-index: 30;
+    border: 1px solid #e7e8e9;
+    box-sizing: border-box;
+    border-radius: 4px;
+    transition: all 0.32s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.shopping.open {
+    opacity: 1;
+    visibility: visible;
+    right: 0;
+}
+
+.shopping .top-shop h3 {
+    position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    display: inline-block;
+    color: #221f20;
+}
+
+.top-shop {
+    padding: 24px 24px 20px;
+    position: relative;
+    border-bottom: 1px solid #f7f8f9;
+    margin-bottom: 24px;
+}
+
+.shopping .top-shop h3 .number-cart {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: #221f20;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 2px;
+    right: -32px;
+}
+
+.main-shop {
+    padding: 0 24px;
+    overflow-y: auto;
+    max-height: calc(100vh - 75px - 190px);
+}
+
+.item-product {
+    display: flex;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f6f7f8;
+}
+
+.thumb {
+    width: 64px;
+}
+
+.thumb img {
+    width: 100%;
+}
+
+.info-product {
+    width: calc(100% - 64px);
+}
+
+.container-flex {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding-left: 12px;
+}
+
+.info-product h3 {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #3e3e3f;
+    margin-bottom: 8px;
+}
+
+.item-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quantity {
+    position: relative;
+}
+
+.quantity-left,
+.quantity-right {
+    position: absolute;
+    top: 1px;
+    background: #ffffff;
+    border: 1px solid #e7e8e9;
+    border-radius: 8px 0px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.quantity-right {
+    right: 0;
+}
+
+#quantity-number {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    height: 24px;
+    padding: 4px 0;
+    width: 72px;
+    border: 1px solid #e7e8e9;
+    border-radius: 8px;
+    color: #57585a;
+    text-align: center;
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.item-price {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #ac2f33;
+}
+
+.bottom-shop {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+}
+
+.total-price {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    font-family: "Montserrat";
+    display: block;
+    text-align: right;
+    color: #525459;
+    margin-bottom: 16px;
+    padding: 0 24px;
+    border-bottom: 1px solid #f6f7f8;
+}
+
+.total-price strong {
+    font-size: 18px;
+    line-height: 24px;
+    color: #0a0a0b;
+    font-weight: 600;
+}
+
+.quantity .fa-minus,
+.quantity .fa-plus {
+    color: #8d8e8f;
+    font-size: 13px;
+}
+
+.close-shop {
+    padding: 3px;
+    position: absolute;
+    top: 23px;
+    right: 25px;
+    line-height: 1;
+    font-size: 22px;
+    cursor: pointer;
+    color: #172b4d;
+}
+
+.box-action {
+    padding: 0 24px;
+}
+
+.box-title {
+    color: #ffffff;
+    background: #0a0a0b;
+    border: 1px solid transparent;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "Montserrat";
+    display: block;
+    padding: 16px 0;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.box-title:hover {
+    color: #0a0a0b;
+    background: #fff;
+    border: 1px solid #0a0a0b;
+}
+
+.trash {
+    position: absolute;
+    right: 2px;
+    bottom: 34%;
+}
+
+.trash i {
+    cursor: pointer;
+}

@@ -14,8 +14,8 @@ function ShowMore() {
     };
 
     return (
-        <div className="show-all" onClick={handleSetQuantity}>
-            <div id="more-pro" className="show-text">
+        <div className="show-all">
+            <div id="more-pro" className="show-text" onClick={handleSetQuantity}>
                 {isShowFull ? "Thu gọn" : "Xem thêm"}
             </div>
         </div>
