@@ -1,5 +1,6 @@
 import "./Products.css";
 import Content from "../Content";
+import { memo } from "react";
 
 function Products() {
     return (
@@ -10,4 +11,4 @@ function Products() {
     );
 }
 
-export default Products;
+export default memo(Products);

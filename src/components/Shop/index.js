@@ -1,41 +1,43 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Shop.css";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useContext } from "react";
 import ShopProduct from "../ShopProduct";
+import { shopContainer } from "../../App";
 
-export const arrShop = [];
+const Shop = (props, ref) => {
+    const arrShop = useContext(shopContainer).arrShop;
+    const handleChangeArrShop = useContext(shopContainer).setArrShop;
 
-function Shop(props, ref) {
-    const [pseudoArr, setPseudoArr] = useState([]);
+    const totalQuantity = arrShop.reduce((total, prod) => total + prod.quantity, 0);
+
+    const totalPriceShop = arrShop.reduce((total, prod) => total + prod.totalPricePro, 0);
 
     const closeShop = () => {
         ref.current.classList.remove("open");
     };
 
-    useEffect(() => {
-        // console.log(arrShop);
-    }, [arrShop]);
-
     return (
         <div className="shopping" id="shopping" ref={ref}>
             <div className="top-shop">
                 <h3>
-                    Giỏ hàng<span className="number-cart">{arrShop.length}</span>
+                    Giỏ hàng<span className="number-cart">{totalQuantity}</span>
                 </h3>
             </div>
             <div className="main-shop" id="main-shop">
                 {arrShop.length === 0 ? (
                     <span>Bạn chưa có sản phẩm nào</span>
                 ) : (
-                    arrShop.map((item) => {
-                        return <h1>cong</h1>;
+                    arrShop.map((product, index) => {
+                        return (
+                            <ShopProduct key={index} data={product} shop={arrShop} handleShop={handleChangeArrShop} />
+                        );
                     })
                 )}
             </div>
             <div className="bottom-shop">
                 <div className="total-price">
-                    Tổng cộng: <strong id="total">0đ</strong>
+                    Tổng cộng: <strong id="total">{totalPriceShop}.00$</strong>
                 </div>
                 <div className="box-action">
                     <div className="box-title">Thanh toán</div>
@@ -46,6 +48,6 @@ function Shop(props, ref) {
             </div>
         </div>
     );
-}
+};
 
 export default forwardRef(Shop);

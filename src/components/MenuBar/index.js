@@ -1,3 +1,4 @@
+import { memo } from "react";
 import "./MenuBar.css";
 
 function MenuBar() {
@@ -22,4 +23,4 @@ function MenuBar() {
     );
 }
 
-export default MenuBar;
+export default memo(MenuBar);
