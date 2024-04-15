@@ -1,14 +1,16 @@
 import { faHeart as HeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as HeartSolid, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef } from "react";
+import { useContext, useMemo, useRef } from "react";
 import { updateProduct } from "../../services/ProductService";
 import "./Pro.css";
-import { arrShop } from "../Shop";
+import { shopContainer } from "../../App";
 
 function Pro({ item, index, updateProChangeHeart }) {
     const heart = useRef();
     const heartRed = useRef();
+
+    const handleAddProduct = useContext(shopContainer).setArrShop;
 
     let data;
 
@@ -51,7 +53,21 @@ function Pro({ item, index, updateProChangeHeart }) {
     };
 
     const addPro = (data) => {
-        arrShop.push(data);
+        handleAddProduct((prev) => {
+            const currentIndex = prev.findIndex((pro) => {
+                return pro.id === data.id;
+            });
+
+            if (currentIndex !== -1) {
+                prev[currentIndex].quantity += data.quantity;
+                prev[currentIndex].totalPricePro = prev[currentIndex].quantity * Number(data.price);
+                const newData = prev.toSpliced(currentIndex, 1, prev[currentIndex]);
+                return newData;
+            } else {
+                data.totalPricePro = data.quantity * data.price;
+                return [...prev, data];
+            }
+        });
     };
 
     return (
@@ -88,7 +104,7 @@ function Pro({ item, index, updateProChangeHeart }) {
                     <div className="price">
                         <span>{data.price}$</span> <del>{data.delPrice}$</del>
                     </div>
-                    <div className="add-to-cart" onClick={() => addPro(data)}>
+                    <div className="add-to-cart" onClick={() => addPro({ ...data, quantity: 1 })}>
                         <FontAwesomeIcon className="fa-cart-shopping" icon={faCartShopping} />
                     </div>
                 </div>

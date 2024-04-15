@@ -1,6 +1,6 @@
 import { faArrowLeftLong, faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef, useState } from "react";
+import { memo, useRef, useState } from "react";
 import imgs from "../../assets/images";
 import ListDot from "../ListDot";
 import "./Banner.css";
@@ -49,4 +49,4 @@ function Banner() {
     );
 }
 
-export default Banner;
+export default memo(Banner);

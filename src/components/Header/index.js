@@ -3,6 +3,7 @@ import Navigate from "../Navigate";
 import Logo from "../Logo";
 import Search from "../Search";
 import Actions from "../Actions";
+import { memo } from "react";
 
 function Header() {
     return (
@@ -19,4 +20,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default memo(Header);
