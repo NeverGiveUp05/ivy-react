@@ -12,7 +12,7 @@ function ProductCarts() {
     useEffect(() => {
         getData();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isActive]);
+    }, []);
 
     useEffect(() => {
         setIsShowFull(quantityShow === result.length);
@@ -22,7 +22,6 @@ function ProductCarts() {
 
     const getData = async () => {
         const data = (await getProduct()).data;
-
         setProducts(data);
         // test
     };

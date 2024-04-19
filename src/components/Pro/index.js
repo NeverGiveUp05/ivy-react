@@ -1,10 +1,11 @@
 import { faHeart as HeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as HeartSolid, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useMemo, useRef } from "react";
+import { useContext, useRef } from "react";
 import { updateProduct } from "../../services/ProductService";
 import "./Pro.css";
 import { shopContainer } from "../../App";
+import { Link } from "react-router-dom";
 
 function Pro({ item, index, updateProChangeHeart }) {
     const heart = useRef();
@@ -73,9 +74,11 @@ function Pro({ item, index, updateProChangeHeart }) {
     return (
         <div className="box">
             <div className="cart">NEW</div>
-            <img className="cart-img" src={data.image} alt="" />
+            <Link to="/product" state={item}>
+                <img className="cart-img" src={data.image} alt="" />
 
-            <img className="pseudo-img" src={data.pseudoImage} alt="" />
+                <img className="pseudo-img" src={data.pseudoImage} alt="" />
+            </Link>
 
             <div className="detail">
                 <div className="detail-head">

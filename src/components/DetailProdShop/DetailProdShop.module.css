@@ -1,0 +1,102 @@
+.quantity {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.quantity p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.quantity-option {
+    width: 144px;
+    position: relative;
+    height: 48px;
+    margin-left: 16px;
+}
+
+.quantity-input {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px 0px;
+    padding-left: 20px;
+    border: 1px solid #e7e8e9;
+    padding: 15px;
+    font-size: 14px;
+    outline: none;
+    color: #57585a;
+}
+
+.quantity-increase,
+.quantity-decrease {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #e7e8e9;
+    border-radius: 16px 0px;
+    background-color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.quantity-increase {
+    right: 0;
+}
+
+.actions {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #f8f8f9;
+}
+
+.btn-add,
+.btn-buy {
+    max-width: 170px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    height: 48px;
+    padding: 15px;
+    background-color: #221f20;
+    color: #f7f8f9;
+    border: 1px solid transparent;
+    border-radius: 16px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-add {
+    width: 100%;
+}
+
+.btn-add:hover {
+    background-color: #f7f8f9;
+    color: #221f20;
+    border-color: #221f20;
+}
+
+.btn-buy {
+    background-color: white;
+    border: 1px solid #221f20;
+    color: #221f20;
+}
+
+.btn-buy:hover {
+    background-color: #221f20;
+    color: white;
+}

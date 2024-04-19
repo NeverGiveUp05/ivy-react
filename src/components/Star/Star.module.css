@@ -1,0 +1,37 @@
+.rating {
+    height: 0;
+}
+
+.star {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.rating .star,
+.rating .star:hover ~ .star {
+    color: #6c6d70;
+}
+
+.rating:hover .star {
+    color: #fc0;
+}
+
+.rating:hover .star:nth-child(2) {
+    transition-delay: 30ms;
+}
+
+.rating:hover .star:nth-child(3) {
+    transition-delay: 60ms;
+}
+
+.rating:hover .star:nth-child(4) {
+    transition-delay: 90ms;
+}
+
+.rating:hover .star:nth-child(5) {
+    transition-delay: 120ms;
+}
+
+.yellow {
+    color: #fc0;
+}

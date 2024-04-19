@@ -1,0 +1,119 @@
+body {
+    color: #6c6d70;
+}
+
+.wrapper {
+    margin-left: 90px;
+    max-width: 40%;
+    flex-grow: 1;
+}
+
+.prod-name {
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+    color: #221f20;
+    text-transform: uppercase;
+}
+
+.sub-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6c6d70;
+}
+
+.sub-info p {
+    line-height: 28px;
+}
+
+.price {
+    position: relative;
+    margin-top: 24px;
+    display: inline-block;
+}
+
+.price b {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 32px;
+    color: #221f20;
+}
+
+.price del {
+    color: #a8a9ad;
+    margin-left: 8px;
+}
+
+.price-sale {
+    background-color: #dc633a;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    color: #f7f8f9;
+    position: absolute;
+    left: calc(100% + 15px);
+    top: -20%;
+    padding: 4px 8px;
+    min-width: 55px;
+}
+
+.color {
+    margin-top: 24px;
+}
+
+.color p {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    color: #221f20;
+    margin-bottom: 0;
+}
+
+.wrap-color {
+    margin-top: 10px;
+    display: flex;
+    gap: 14px;
+}
+
+.color-df8230 {
+    width: 20px;
+    height: 20px;
+    background-color: #df8230;
+    border-radius: 50%;
+}
+
+.color-d2a0ad {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: #d2a0ad;
+    border-radius: 50%;
+}
+
+.checked::after {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 9px;
+    border: 1px solid #fff;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+}
+
+.check-size {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 16px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.check-size:hover {
+    color: #ac2f33;
+}

@@ -5,6 +5,7 @@ import { faShopify } from "@fortawesome/free-brands-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { shopContainer } from "../../App";
+import { Link } from "react-router-dom";
 
 function Actions() {
     const shopBox = useContext(shopContainer);
@@ -21,7 +22,9 @@ function Actions() {
                 <FontAwesomeIcon icon={faHeadphones} />
             </div>
             <div className="item">
-                <FontAwesomeIcon icon={faUser} />
+                <Link to="/login" style={{ color: "#373737ef" }}>
+                    <FontAwesomeIcon icon={faUser} />
+                </Link>
             </div>
             <div className="item" id="open" onClick={openShop}>
                 <FontAwesomeIcon icon={faShopify} />

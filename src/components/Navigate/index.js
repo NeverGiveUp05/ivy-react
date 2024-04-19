@@ -1,27 +1,28 @@
 import "./Navigate.css";
+import { Link } from "react-router-dom";
 
 function Navigate() {
     return (
         <ul className="navigate">
             <li>
-                <a href="/">NỮ</a>
+                <Link to="/">NỮ</Link>
             </li>
             <li>
-                <a href="/">NAM</a>
+                <Link to="/">NAM</Link>
             </li>
             <li>
-                <a href="/">TRẺ EM</a>
+                <Link to="/">TRẺ EM</Link>
             </li>
             <li>
-                <a href="/" className="text-red-color">
+                <Link to="/" className="text-red-color">
                     BIG SALE THÁNG 3
-                </a>
+                </Link>
             </li>
             <li>
-                <a href="/">BỘ SƯU TẬP</a>
+                <Link to="/">BỘ SƯU TẬP</Link>
             </li>
             <li>
-                <a href="/">VỀ CHÚNG TÔI</a>
+                <Link to="/">VỀ CHÚNG TÔI</Link>
             </li>
         </ul>
     );
