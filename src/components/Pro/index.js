@@ -6,12 +6,15 @@ import { updateProduct } from "../../services/ProductService";
 import "./Pro.css";
 import { shopContainer } from "../../App";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { UPDATE_SHOP } from "../../redux/actions/shopAction";
 
 function Pro({ item, index, updateProChangeHeart }) {
     const heart = useRef();
     const heartRed = useRef();
+    const dispatch = useDispatch();
 
-    const handleAddProduct = useContext(shopContainer).setArrShop;
+    // const handleAddProduct = useContext(shopContainer).setArrShop;
 
     let data;
 
@@ -54,21 +57,39 @@ function Pro({ item, index, updateProChangeHeart }) {
     };
 
     const addPro = (data) => {
-        handleAddProduct((prev) => {
-            const currentIndex = prev.findIndex((pro) => {
-                return pro.id === data.id;
-            });
+        // handleAddProduct((prev) => {
+        //     const currentIndex = prev.findIndex((pro) => {
+        //         return pro.id === data.id;
+        //     });
 
-            if (currentIndex !== -1) {
-                prev[currentIndex].quantity += data.quantity;
-                prev[currentIndex].totalPricePro = prev[currentIndex].quantity * Number(data.price);
-                const newData = prev.toSpliced(currentIndex, 1, prev[currentIndex]);
-                return newData;
-            } else {
-                data.totalPricePro = data.quantity * data.price;
-                return [...prev, data];
-            }
+        //     if (currentIndex !== -1) {
+        //         prev[currentIndex].quantity += data.quantity;
+        //         prev[currentIndex].totalPricePro = prev[currentIndex].quantity * Number(data.price);
+        //         const newData = prev.toSpliced(currentIndex, 1, prev[currentIndex]);
+        //         return newData;
+        //     } else {
+        //         data.totalPricePro = data.quantity * data.price;
+        //         return [...prev, data];
+        //     }
+        // });
+
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const arrShop = useSelector((state) => state.shop.arrShop);
+
+        const currentIndex = arrShop.findIndex((pro) => {
+            return pro.id === data.id;
         });
+
+        if (currentIndex !== -1) {
+            arrShop[currentIndex].quantity += data.quantity;
+            arrShop[currentIndex].totalPricePro = arrShop[currentIndex].quantity * Number(data.price);
+            const newData = arrShop.toSpliced(currentIndex, 1, arrShop[currentIndex]);
+            dispatch({ type: UPDATE_SHOP, data: newData });
+        } else {
+            data.totalPricePro = data.quantity * data.price;
+            const newData = [...arrShop, data];
+            dispatch({ type: UPDATE_SHOP, data: newData });
+        }
     };
 
     return (

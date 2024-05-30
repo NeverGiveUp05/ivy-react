@@ -6,11 +6,13 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { useContext } from "react";
 import { shopContainer } from "../../App";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Actions() {
     const shopBox = useContext(shopContainer);
+    const arrShop = useSelector((state) => state.shop.arrShop);
 
-    const totalQuantity = shopBox.arrShop.reduce((total, prod) => total + prod.quantity, 0);
+    const totalQuantity = arrShop.reduce((total, prod) => total + prod.quantity, 0);
 
     const openShop = () => {
         shopBox.shopRef.current.classList.add("open");

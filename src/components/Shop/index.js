@@ -4,9 +4,12 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { forwardRef, useContext } from "react";
 import ShopProduct from "../ShopProduct";
 import { shopContainer } from "../../App";
+import { useSelector } from "react-redux";
 
 const Shop = (props, ref) => {
-    const arrShop = useContext(shopContainer).arrShop;
+    // const arrShop = useContext(shopContainer).arrShop;
+    const arrShop = useSelector((state) => state.shop.arrShop);
+
     const handleChangeArrShop = useContext(shopContainer).setArrShop;
 
     const totalQuantity = arrShop.reduce((total, prod) => total + prod.quantity, 0);
