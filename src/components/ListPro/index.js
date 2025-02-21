@@ -23,7 +23,6 @@ function ProductCarts() {
     const getData = async () => {
         const data = (await getProduct()).data;
         setProducts(data);
-        // test
     };
 
     const updateProChangeHeart = (id, data) => {

@@ -9,6 +9,7 @@ const ScrollToTop = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         shopRef.current.classList.remove("open");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [pathname]);
 };
 

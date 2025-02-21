@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Shop.css";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { forwardRef, useContext } from "react";
+import { forwardRef } from "react";
 import ShopProduct from "../ShopProduct";
-import { shopContainer } from "../../App";
+import { useSelector } from "react-redux";
 
 const Shop = (props, ref) => {
-    const arrShop = useContext(shopContainer).arrShop;
-    const handleChangeArrShop = useContext(shopContainer).setArrShop;
+    const arrShop = useSelector((state) => state.shop.value);
 
     const totalQuantity = arrShop.reduce((total, prod) => total + prod.quantity, 0);
 
@@ -29,9 +28,7 @@ const Shop = (props, ref) => {
                     <span>Bạn chưa có sản phẩm nào</span>
                 ) : (
                     arrShop.map((product, index) => {
-                        return (
-                            <ShopProduct key={index} data={product} shop={arrShop} handleShop={handleChangeArrShop} />
-                        );
+                        return <ShopProduct key={index} data={product} />;
                     })
                 )}
             </div>

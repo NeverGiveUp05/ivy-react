@@ -1,40 +1,34 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ShopProduct.css";
 import { faMinus, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { increaseValue, decreaseValue, changeNumber, checkNumber, removePro } from "../../redux/shopSlice";
 
-function ShopProduct({ data, shop, handleShop }) {
+function ShopProduct({ data }) {
+    const shop = useSelector((state) => state.shop.value);
+
+    const dispatch = useDispatch();
+
     const minus = (data) => {
-        const currentIndex = shop.findIndex((item) => item.id === data.id);
-        if (data.quantity > 1) {
-            shop[currentIndex].quantity -= 1;
-        } else {
-            return;
-        }
-        shop[currentIndex].totalPricePro = shop[currentIndex].quantity * Number(data.price);
-        const newShop = shop.toSpliced(currentIndex, 1, shop[currentIndex]);
-        handleShop(newShop);
+        dispatch(decreaseValue(data));
     };
 
     const increase = (data) => {
-        const currentIndex = shop.findIndex((item) => item.id === data.id);
-        shop[currentIndex].quantity += 1;
-        shop[currentIndex].totalPricePro = shop[currentIndex].quantity * Number(data.price);
-        const newShop = shop.toSpliced(currentIndex, 1, shop[currentIndex]);
-        handleShop(newShop);
+        dispatch(increaseValue(data));
     };
 
     const handleChangeNumber = (value, data) => {
-        const currentIndex = shop.findIndex((item) => item.id === data.id);
-        shop[currentIndex].quantity = Number(value);
-        shop[currentIndex].totalPricePro = shop[currentIndex].quantity * Number(data.price);
-        const newShop = shop.toSpliced(currentIndex, 1, shop[currentIndex]);
-        handleShop(newShop);
+        dispatch(changeNumber({ value, data }));
+    };
+
+    const handleCheckNumber = (value, data) => {
+        if (Number(value) < 1) {
+            dispatch(checkNumber({ value, data }));
+        }
     };
 
     const handleRemovePro = (data) => {
-        const currentIndex = shop.findIndex((item) => item.id === data.id);
-        const newShop = shop.filter((item, index) => index !== currentIndex);
-        handleShop(newShop);
+        dispatch(removePro(data));
     };
 
     return (
@@ -59,6 +53,7 @@ function ShopProduct({ data, shop, handleShop }) {
                             type="number"
                             id="quantity-number"
                             value={data.quantity <= 0 ? " " : data.quantity}
+                            onBlur={(e) => handleCheckNumber(e.target.value, data)}
                             onChange={(e) => handleChangeNumber(e.target.value, data)}
                         />
                         <div className="quantity-right" onClick={() => increase(data)}>

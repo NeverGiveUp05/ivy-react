@@ -1,12 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./DetailProdShop.module.css";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { shopContainer } from "../../App";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { addShop } from "../../redux/shopSlice";
 
 function DetailProdShop({ data }) {
-    const { arrShop, setArrShop } = useContext(shopContainer);
+    const dispatch = useDispatch();
 
     const [quantity, setQuantity] = useState(1);
 
@@ -28,17 +29,7 @@ function DetailProdShop({ data }) {
         if (Number(quantity > 0)) {
             const productPass = { ...data, quantity };
 
-            const currentIndex = arrShop.findIndex((prod) => prod.id === productPass.id);
-
-            if (currentIndex !== -1) {
-                arrShop[currentIndex].quantity += Number(productPass.quantity);
-                arrShop[currentIndex].totalPricePro = arrShop[currentIndex].quantity * Number(productPass.price);
-                const newShop = arrShop.toSpliced(currentIndex, 1, arrShop[currentIndex]);
-                setArrShop(newShop);
-            } else {
-                productPass.totalPricePro = productPass.quantity * Number(productPass.price);
-                setArrShop((prevArr) => [...prevArr, productPass]);
-            }
+            dispatch(addShop(productPass));
 
             toast.success("Đã thêm vào giỏ hàng", {
                 position: "bottom-right",

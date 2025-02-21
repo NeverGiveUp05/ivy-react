@@ -1,17 +1,18 @@
 import { faHeart as HeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as HeartSolid, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import { updateProduct } from "../../services/ProductService";
 import "./Pro.css";
-import { shopContainer } from "../../App";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addShop } from "../../redux/shopSlice";
 
 function Pro({ item, index, updateProChangeHeart }) {
     const heart = useRef();
     const heartRed = useRef();
 
-    const handleAddProduct = useContext(shopContainer).setArrShop;
+    const dispatch = useDispatch();
 
     let data;
 
@@ -54,21 +55,7 @@ function Pro({ item, index, updateProChangeHeart }) {
     };
 
     const addPro = (data) => {
-        handleAddProduct((prev) => {
-            const currentIndex = prev.findIndex((pro) => {
-                return pro.id === data.id;
-            });
-
-            if (currentIndex !== -1) {
-                prev[currentIndex].quantity += data.quantity;
-                prev[currentIndex].totalPricePro = prev[currentIndex].quantity * Number(data.price);
-                const newData = prev.toSpliced(currentIndex, 1, prev[currentIndex]);
-                return newData;
-            } else {
-                data.totalPricePro = data.quantity * data.price;
-                return [...prev, data];
-            }
-        });
+        dispatch(addShop(data));
     };
 
     return (
